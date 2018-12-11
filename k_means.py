@@ -15,7 +15,7 @@ import pretreatment
 def main():
     # 读取训练用数据
     print('Start: read data', time.process_time())
-    X = pretreatment.load_data()    # NOQA
+    X, _ = pretreatment.load_data()     # NOQA
     c, h, w = X.shape
     X = X.reshape((c, h * w))       # NOQA
     X = X / 255.0                   # NOQA
