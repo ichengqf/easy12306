@@ -11,6 +11,8 @@ import cv2
 import numpy as np
 import requests
 
+import base64
+
 
 PATH = 'imgs'
 
@@ -19,11 +21,12 @@ def download_image():
     # 抓取验证码
     # 存放到指定path下
     # 文件名为图像的MD5
-    url = 'https://kyfw.12306.cn/otn/passcodeNew/getPassCodeNew?module=login&rand=sjrand'
+    url = 'https://kyfw.12306.cn/passport/captcha/captcha-image64?login_site=E&module=login&rand=sjrand&1547799423572&callback=jQuery191016122564965500885_1547799417155&_=1547799417157'
     r = requests.get(url)
     fn = hashlib.md5(r.content).hexdigest()
+    print(r.content)
     with open(f'{PATH}/{fn}.jpg', 'wb') as fp:
-        fp.write(r.content)
+        fp.write(base64.b64decode(r.imge))
 
 
 def download_images():

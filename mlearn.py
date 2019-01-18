@@ -18,7 +18,7 @@ def load_data(fn='texts.npz', to=False):
     return (texts[:n], labels[:n]), (texts[n:], labels[n:])
 
 
-def savefig(history, fn='loss.jpg'):
+def savefig(history, fn='loss.png'):
     import matplotlib.pyplot as plt
     # 忽略起点
     loss = history.history['loss'][1:]

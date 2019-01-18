@@ -3,6 +3,9 @@ import numpy as np
 import mlearn
 from pretreatment import load_data
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 
 def learn():
     texts, imgs = load_data()
